@@ -1,6 +1,6 @@
 import SwiftUI
 
-extension Int {
+public extension Int {
     static let weekDayCount: Int = 7
     static let yearWeekCount: Int = 52
     static let yearMonthCount: Int = 12
@@ -19,7 +19,7 @@ extension Int {
     }
 }
 
-extension Date {
+public extension Date {
     static var currentYearAsInt: Int {
         Calendar.current.dateComponents(in: .current, from: .now).year!
     }
@@ -65,7 +65,7 @@ extension Date {
     }
 }
 
-extension Double {
+public extension Double {
     static var rightAngle: Double = 90
     static var transitionDuration = 0.5
 }

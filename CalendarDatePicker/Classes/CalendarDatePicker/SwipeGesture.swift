@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SwipeGesture {
+public struct SwipeGesture {
     var leftSwipe: () -> Void
     var rightSwipe: () -> Void
     private let zero: Double = .zero

@@ -1,4 +1,4 @@
-enum Weekday: String, Identifiable, CaseIterable {
+public enum Weekday: String, Identifiable, CaseIterable {
     case monday = "Monday"
     case tuesday = "Tuesday"
     case wednesday = "Wednesday"
@@ -7,9 +7,9 @@ enum Weekday: String, Identifiable, CaseIterable {
     case saturday = "Saturday"
     case sunday = "Sunday"
 
-    var id: Self { self }
+    public var id: Self { self }
 
-    var abbreviated: String {
+    public var abbreviated: String {
         switch self {
         case .monday: return "Mon"
         case .tuesday: return "Tue"
