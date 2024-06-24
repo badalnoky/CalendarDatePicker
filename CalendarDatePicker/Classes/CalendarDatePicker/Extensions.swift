@@ -2,13 +2,10 @@ import SwiftUI
 
 public extension Int {
     static let weekDayCount: Int = 7
-    static let yearWeekCount: Int = 52
-    static let yearMonthCount: Int = 12
     static let firstMonth: Int = 1
     static let lastMonth: Int = 12
     static let plusOne: Int = 1
     static let minusOne: Int = -1
-    static let maxMonthlyDayCount = 31
     static let defaultTimeframe = 50
 
     var weekDayOffset: Int {
@@ -115,12 +112,4 @@ public extension CGFloat {
     static let padding8: CGFloat = 8
     /// 12 pt
     static let padding12: CGFloat = 12
-    /// 16 pt
-    static let padding16: CGFloat = 16
-    /// 24 pt
-    static let padding24: CGFloat = 24
-    /// 32 pt
-    static let padding32: CGFloat = 32
-    /// 50 pt
-    static let padding50: CGFloat = 50
 }
