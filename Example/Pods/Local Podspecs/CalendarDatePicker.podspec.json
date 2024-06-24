@@ -1,0 +1,22 @@
+{
+  "name": "CalendarDatePicker",
+  "version": "0.1.0",
+  "summary": "A short description of CalendarDatePicker.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/badalnoky/CalendarDatePicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "badalnoky": "dalnoky.bertalan.andras@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/badalnoky/CalendarDatePicker.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "CalendarDatePicker/Classes/**/*"
+}
