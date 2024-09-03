@@ -7,12 +7,17 @@ public extension Int {
     static let plusOne: Int = 1
     static let minusOne: Int = -1
     static let defaultTimeframe = 50
+    static let defaultIdOffset = 60
 
     var weekDayOffset: Int {
         switch self {
         case 1: return 6
         default: return self - 2
         }
+    }
+
+    var withOffset: Int {
+        self + .defaultIdOffset
     }
 }
 

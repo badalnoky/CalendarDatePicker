@@ -157,7 +157,7 @@ extension CalendarDatePicker {
                             onDateTapAction()
                         }
                 }
-                ForEach(.zero..<selectedMonth.monthPostset(), id: \.self) { _ in
+                ForEach(.defaultIdOffset..<(selectedMonth.monthPostset().withOffset), id: \.self) { _ in
                     Color.clear
                 }
             }
