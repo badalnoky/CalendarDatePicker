@@ -13,6 +13,7 @@
 		3E30E2CA527B1A4A3A2A751042EE4BFD /* CalendarDatePicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1EC8E0EECAC0EC1E95D8C1B17376E5 /* CalendarDatePicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		44C4766F7BB48FEA4DC1F876A81D7F68 /* Pods-CalendarDatePicker_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4BD7F4F1F1706A1BD578DBA4CAC52 /* Pods-CalendarDatePicker_Tests-dummy.m */; };
 		6F93E6B590B313A7BB3254E06706AEF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		79709D522C92DA56007B9439 /* MacCalendarDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79709D512C92DA56007B9439 /* MacCalendarDatePicker.swift */; };
 		7AE2B9D17F7976F78E6A48C8DB08C4DC /* Pods-CalendarDatePicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 796B85BB901D1A6C85A692F07745CCDF /* Pods-CalendarDatePicker_Example-dummy.m */; };
 		9160B4592C2967F000B84BE1 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9160B4552C2967F000B84BE1 /* Weekday.swift */; };
 		9160B45A2C2967F000B84BE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9160B4562C2967F000B84BE1 /* Extensions.swift */; };
@@ -56,6 +57,7 @@
 		6C09FEB77AF547C9213352D40B771505 /* Pods-CalendarDatePicker_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CalendarDatePicker_Example-frameworks.sh"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		796B85BB901D1A6C85A692F07745CCDF /* Pods-CalendarDatePicker_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CalendarDatePicker_Example-dummy.m"; sourceTree = "<group>"; };
+		79709D512C92DA56007B9439 /* MacCalendarDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacCalendarDatePicker.swift; sourceTree = "<group>"; };
 		7FABAE8522AB19C1392846D0E1EFD6A1 /* Pods-CalendarDatePicker_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CalendarDatePicker_Tests-Info.plist"; sourceTree = "<group>"; };
 		858B452CA6F5747C3CC3EC70EADCB5A7 /* Pods-CalendarDatePicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CalendarDatePicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		86F0B11B372A92525716F06E081F01D6 /* Pods-CalendarDatePicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CalendarDatePicker_Tests.modulemap"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		9160B4542C2967F000B84BE1 /* CalendarDatePicker */ = {
 			isa = PBXGroup;
 			children = (
+				79709D512C92DA56007B9439 /* MacCalendarDatePicker.swift */,
 				9160B4552C2967F000B84BE1 /* Weekday.swift */,
 				9160B4562C2967F000B84BE1 /* Extensions.swift */,
 				9160B4572C2967F000B84BE1 /* SwipeGesture.swift */,
@@ -403,6 +406,7 @@
 				9160B4592C2967F000B84BE1 /* Weekday.swift in Sources */,
 				9160B45A2C2967F000B84BE1 /* Extensions.swift in Sources */,
 				EAFAD634234E85130E9CA61940FD79B4 /* CalendarDatePicker-dummy.m in Sources */,
+				79709D522C92DA56007B9439 /* MacCalendarDatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

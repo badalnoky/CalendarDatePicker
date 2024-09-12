@@ -1,7 +1,7 @@
-#if !os(macOS)
+#if os(macOS)
 import SwiftUI
 
-public struct CalendarDatePicker {
+public struct MacCalendarDatePicker {
     var selectedDate: Binding<Date>
     var onDateTapAction: () -> Void
 
@@ -66,50 +66,42 @@ public struct CalendarDatePicker {
     }
 }
 
-extension CalendarDatePicker: View {
+extension MacCalendarDatePicker: View {
     public var body: some View {
         VStack {
             headerView
             .frame(height: .dateSize)
             .frame(maxWidth: .infinity)
             .padding(.vertical, .calendarVerticalPadding)
-            if !isPickerActive {
-                Group {
-                    weekDayView
-                    monthView
-                        .gesture(
-                            SwipeGesture(
-                                leftSwipe: increaseSelectedMonth,
-                                rightSwipe: decreaseSelectedMonth
-                            )
-                        )
-                }
-            } else {
-                dateWheelView
+            Group {
+                weekDayView
+                monthView
             }
             Spacer()
         }
         .frame(height: .defaultCalendarHeight)
+        .frame(minWidth: .minCalendarWidth)
         .padding(.padding12)
     }
 }
 
-extension CalendarDatePicker {
+extension MacCalendarDatePicker {
     private var headerView: some View {
         HStack(alignment: .center, spacing: .calendarHeaderSpacing) {
             pickerButton
+                .popover(isPresented: $isPickerActive) {
+                    dateWheelView
+                }
             Spacer()
-            if !isPickerActive {
-                Button(action: decreaseSelectedMonth) {
-                    Image.back
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                }
-                Button(action: increaseSelectedMonth) {
-                    Image.next
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                }
+            Button(action: decreaseSelectedMonth) {
+                Image.back
+                    .font(.title3)
+                    .fontWeight(.semibold)
+            }
+            Button(action: increaseSelectedMonth) {
+                Image.next
+                    .font(.title3)
+                    .fontWeight(.semibold)
             }
         }
     }
@@ -153,6 +145,7 @@ extension CalendarDatePicker {
                         .padding(.vertical, .padding4)
                         .tag(date)
                         .selectedStyle(isSelected: isSelected(date))
+                        .contentShape(Circle())
                         .onTapGesture {
                             selectDate(date)
                             onDateTapAction()
@@ -168,32 +161,33 @@ extension CalendarDatePicker {
 
     private var dateWheelView: some View {
         HStack {
-            Picker(String.empty, selection: $pickerYear) {
-                ForEach(Date.currentYearRange, id: \.self) {
-                    Text(String($0))
-                }
-            }
-            .pickerStyle(.wheel)
-            .onChange(of: pickerYear) {
-                changeSelectedMonth()
-            }
             Picker(String.empty, selection: $pickerMonth) {
                 ForEach(firstMonth...lastMonth, id: \.self) {
                     Text(Calendar.current.monthSymbols[$0 - .plusOne])
                 }
             }
-            .pickerStyle(.wheel)
+            .frame(minWidth: .minPickerWidth)
             .onChange(of: pickerMonth) {
                 changeSelectedMonth()
             }
+            Picker(String.empty, selection: $pickerYear) {
+                ForEach(Date.currentYearRange, id: \.self) {
+                    Text(String($0))
+                }
+            }
+            .frame(minWidth: .minPickerWidth)
+            .onChange(of: pickerYear) {
+                changeSelectedMonth()
+            }
         }
+        .padding()
     }
 }
 
 #Preview {
     @State var date = Date.now
     return VStack {
-        CalendarDatePicker(selectedDate: $date) {}
+        MacCalendarDatePicker(selectedDate: $date) {}
         Spacer()
     }
 }

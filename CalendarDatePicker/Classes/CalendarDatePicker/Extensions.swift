@@ -81,6 +81,10 @@ extension CGFloat {
     static var calendarHeaderSpacing: CGFloat = 24
     /// 44 pt
     static var dateSize: CGFloat = 44
+    /// 100 pt
+    static var minPickerWidth: CGFloat = 100
+    /// 300 pt
+    static var minCalendarWidth: CGFloat = 300
     /// 450 pt
     static let defaultCalendarHeight: CGFloat = 450
 }
