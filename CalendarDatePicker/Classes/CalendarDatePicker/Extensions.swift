@@ -115,7 +115,7 @@ extension View {
 
     func macSelectedStyle(isSelected: Bool) -> some View {
         self
-            .foregroundStyle(isSelected ? AnyShapeStyle(.background) : AnyShapeStyle(Color.primary))
+            .foregroundStyle(isSelected ? AnyShapeStyle(.white) : AnyShapeStyle(Color.primary))
             .fontWeight(isSelected ? .bold : .regular)
             .background(alignment: .center) {
                 Circle().frame(width: .macDateSize, height: .macDateSize)
