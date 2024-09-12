@@ -79,12 +79,16 @@ extension CGFloat {
     static var calendarVerticalPadding: CGFloat = 8
     /// 24 pt
     static var calendarHeaderSpacing: CGFloat = 24
+    /// 35 pt
+    static var macDateSize: CGFloat = 35
     /// 44 pt
     static var dateSize: CGFloat = 44
     /// 100 pt
     static var minPickerWidth: CGFloat = 100
     /// 300 pt
     static var minCalendarWidth: CGFloat = 300
+    /// 320 pt
+    static var minCalendarHeight: CGFloat = 320
     /// 450 pt
     static let defaultCalendarHeight: CGFloat = 450
 }
@@ -105,6 +109,16 @@ extension View {
             .fontWeight(isSelected ? .bold : .regular)
             .background(alignment: .center) {
                 Circle().dateSized()
+                    .foregroundStyle(isSelected ? AnyShapeStyle(.tint) : AnyShapeStyle(Color.clear))
+            }
+    }
+
+    func macSelectedStyle(isSelected: Bool) -> some View {
+        self
+            .foregroundStyle(isSelected ? AnyShapeStyle(.background) : AnyShapeStyle(Color.primary))
+            .fontWeight(isSelected ? .bold : .regular)
+            .background(alignment: .center) {
+                Circle().frame(width: .macDateSize, height: .macDateSize)
                     .foregroundStyle(isSelected ? AnyShapeStyle(.tint) : AnyShapeStyle(Color.clear))
             }
     }

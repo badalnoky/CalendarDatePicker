@@ -70,18 +70,17 @@ extension MacCalendarDatePicker: View {
     public var body: some View {
         VStack {
             headerView
-            .frame(height: .dateSize)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, .calendarVerticalPadding)
+            .padding(.vertical, .padding8)
+            .padding(.horizontal, .padding12)
+
             Group {
                 weekDayView
                 monthView
             }
             Spacer()
         }
-        .frame(height: .defaultCalendarHeight)
-        .frame(minWidth: .minCalendarWidth)
-        .padding(.padding12)
+        .frame(minWidth: .minCalendarWidth, minHeight: .minCalendarHeight)
     }
 }
 
@@ -124,11 +123,12 @@ extension MacCalendarDatePicker {
     private var weekDayView: some View {
         HStack {
             ForEach(Weekday.allCases) { day in
-                Text(day.abbreviated.uppercased()).font(.footnote).bold()
+                Text(day.abbreviated.uppercased()).font(.caption).bold()
                     .foregroundStyle(Color.gray)
                     .frame(maxWidth: .infinity)
             }
         }
+        .padding(.horizontal, .padding12)
     }
 
     private var monthView: some View {
@@ -139,13 +139,12 @@ extension MacCalendarDatePicker {
                 }
                 ForEach(selectedMonth.currentMonth(), id: \.self) { date in
                     Text(date, format: .dateTime.day())
-                        .dateSized()
                         .font(.title3)
-                        .padding(.horizontal, .padding8)
                         .padding(.vertical, .padding4)
                         .tag(date)
-                        .selectedStyle(isSelected: isSelected(date))
-                        .contentShape(Circle())
+                        .frame(width: .macDateSize, height: .macDateSize)
+                        .macSelectedStyle(isSelected: isSelected(date))
+                        .contentShape(Rectangle())
                         .onTapGesture {
                             selectDate(date)
                             onDateTapAction()
@@ -157,6 +156,7 @@ extension MacCalendarDatePicker {
             }
             .transition(.move(edge: transitionEdge).combined(with: .opacity))
         }
+        .padding(.horizontal, .padding12)
     }
 
     private var dateWheelView: some View {
@@ -170,12 +170,7 @@ extension MacCalendarDatePicker {
             .onChange(of: pickerMonth) {
                 changeSelectedMonth()
             }
-            Picker(String.empty, selection: $pickerYear) {
-                ForEach(Date.currentYearRange, id: \.self) {
-                    Text(String($0))
-                }
-            }
-            .frame(minWidth: .minPickerWidth)
+            TextField(String.empty, value: $pickerYear, format: .number)
             .onChange(of: pickerYear) {
                 changeSelectedMonth()
             }
